@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SalaryApp.EntryPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#F5F7FF"
+    Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="56,*,Auto">
+
+        <!-- ── Шапка ── -->
+        <Grid
+            Grid.Row="0"
+            BackgroundColor="#1E1E3C"
+            Padding="12,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Grid.Column="0"
+                Text="← Назад"
+                BackgroundColor="Transparent"
+                TextColor="White"
+                FontSize="14"
+                Padding="0"
+                Clicked="BtnBack_Clicked" />
+
+            <Label
+                Grid.Column="1"
+                x:Name="LblTitle"
+                FontSize="15"
+                FontAttributes="Bold"
+                TextColor="White"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" />
+        </Grid>
+
+        <!-- ── Форма ── -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="14" Spacing="10">
+
+                <!-- Подзаголовок типа выплаты -->
+                <Label
+                    x:Name="LblSubtitle"
+                    FontSize="13"
+                    FontAttributes="Bold"
+                    TextColor="#1E1E3C" />
+
+                <!-- Дата -->
+                <Label Text="Дата получения:" FontSize="13" TextColor="#1E1E3C" />
+                <DatePicker
+                    x:Name="DtpDate"
+                    Format="dd.MM.yyyy"
+                    FontSize="14"
+                    TextColor="#1E1E3C"
+                    BackgroundColor="White" />
+
+                <!-- Сумма -->
+                <Label Text="Сумма (₽):" FontSize="13" TextColor="#1E1E3C" />
+                <Entry
+                    x:Name="TxtAmount"
+                    Placeholder="0.00"
+                    Keyboard="Numeric"
+                    FontSize="14"
+                    BackgroundColor="White"
+                    TextColor="#1E1E3C" />
+
+                <!-- Карта -->
+                <Label Text="Получено на:" FontSize="13" TextColor="#1E1E3C" />
+                <Picker
+                    x:Name="PkrCard"
+                    FontSize="14"
+                    BackgroundColor="White"
+                    TextColor="#1E1E3C"
+                    SelectedIndexChanged="PkrCard_SelectedIndexChanged" />
+
+                <!-- Поле своего названия (показывается если выбрано Другое...) -->
+                <Entry
+                    x:Name="TxtCardCustom"
+                    Placeholder="Название карты / способ"
+                    FontSize="14"
+                    BackgroundColor="White"
+                    TextColor="#1E1E3C"
+                    IsVisible="False" />
+
+                <!-- Доп. выплаты -->
+                <Label
+                    Text="Дополнительные выплаты:"
+                    FontSize="13"
+                    FontAttributes="Bold"
+                    TextColor="#1E1E3C"
+                    Margin="0,6,0,0" />
+
+                <!-- Контейнер строк доп. выплат -->
+                <VerticalStackLayout x:Name="ExtrasStack" Spacing="6" />
+
+                <!-- Кнопка добавить доп. выплату -->
+                <Button
+                    x:Name="BtnAddExtra"
+                    Text="+ Добавить доплату"
+                    BackgroundColor="#D2E6FF"
+                    TextColor="#1E1E3C"
+                    FontAttributes="Bold"
+                    FontSize="13"
+                    CornerRadius="8"
+                    HeightRequest="38"
+                    Clicked="BtnAddExtra_Clicked" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- ── Кнопки внизу ── -->
+        <Grid
+            Grid.Row="2"
+            Padding="14,10"
+            ColumnSpacing="8"
+            BackgroundColor="#F5F7FF">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Grid.Column="0"
+                x:Name="BtnSave"
+                Text="💾 Сохранить"
+                BackgroundColor="#3264C8"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="14"
+                CornerRadius="8"
+                HeightRequest="46"
+                Clicked="BtnSave_Clicked" />
+
+            <Button
+                Grid.Column="1"
+                x:Name="BtnDelete"
+                Text="🗑 Удалить"
+                BackgroundColor="#DC5050"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="14"
+                CornerRadius="8"
+                HeightRequest="46"
+                IsVisible="False"
+                Clicked="BtnDelete_Clicked" />
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

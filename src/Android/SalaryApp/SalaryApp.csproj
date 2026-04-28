@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFrameworks>net9.0-android</TargetFrameworks>
+		<RootNamespace>SalaryApp</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>13.0</LangVersion>
+
+		<!-- Версия приложения -->
+		<ApplicationDisplayName>Рассчёт ЗП</ApplicationDisplayName>
+		<ApplicationId>com.salaryapp.main</ApplicationId>
+		<ApplicationIdGuid>A1B2C3D4-E5F6-7890-ABCD-EF1234567890</ApplicationIdGuid>
+		<ApplicationVersion>1</ApplicationVersion>
+		<ApplicationDisplayVersion>28.04.26</ApplicationDisplayVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<!-- Оптимизация Release сборки -->
+	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
+		<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+		<AndroidPackageFormat>apk</AndroidPackageFormat>
+		<AndroidAddKeepAlives>false</AndroidAddKeepAlives>
+	</PropertyGroup>
+
+	<ItemGroup>
+		
+		<!-- Ресурсы приложения -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" />
+
+		<MauiSplashScreen Include="Resources\Splash\splash.svg"
+		                  Color="#1E1E3C"
+		                  BaseSize="128,128" />
+
+		<MauiFont Include="Resources\Fonts\*" />
+		<MauiImage Include="Resources\Images\*" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.120" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+	</ItemGroup>
+
+</Project>
