@@ -9,7 +9,7 @@
     TitleColor="White">
 
     <ShellContent
-        Title="Рассчёт ЗП"
+        Title="Расчёт ЗП"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 

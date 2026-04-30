@@ -7,7 +7,7 @@
         android:icon="@mipmap/appicon"
         android:roundIcon="@mipmap/appicon_round"
         android:supportsRtl="true"
-        android:label="Рассчёт ЗП" />
+        android:label="Расчёт ЗП" />
 
     <!-- Явно убрирает автоматические разрешения MAUI -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
